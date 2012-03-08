@@ -1,0 +1,20 @@
+From: %FROM%
+To: %TO%
+MIME-Version: 1.0
+Content-Type: multipart/related;
+        type="multipart/alternative";
+        boundary="%BOUNDARY%"
+Subject: %THEME%
+
+This is a multi-part message in MIME format.
+
+--%BOUNDARY%
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: base64
+
+%BODY%
+
+%ATTACHMENTS%
+
+--%BOUNDARY%--

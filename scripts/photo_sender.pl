@@ -10,7 +10,7 @@ use Data::Dumper;
 use constant IMAGES_PER_MAIL      => 10;
 use constant IMAGES_PER_MAIL_NEWS => 10;
 
-use constant NEW_IMAGES_ALBUM_NAME => 'New pictures/comments';
+use constant NEW_IMAGES_ALBUM_NAME => 'This pictures or comments was changed on.*';
 
 use constant WEEKLY   => 1;
 use constant WHATSNEW => 2;
@@ -348,7 +348,8 @@ sub get_subscr_images_array {
 		$links->{$image} = $link;
 		$order->{$image} = $index;
 		$albums->{$image} = $album;
-		if ($album eq &NEW_IMAGES_ALBUM_NAME){
+		my $new_images_regexp = &NEW_IMAGES_ALBUM_NAME;
+		if ($album =~ /$new_images_regexp/){
 			$new_images->{$image} = 1;
 		}
 	}

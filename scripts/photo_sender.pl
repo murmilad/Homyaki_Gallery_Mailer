@@ -6,6 +6,7 @@ use Net::FTP;
 use DBI;
 
 use Data::Dumper;
+use URI::Escape;
 
 use constant IMAGES_PER_MAIL      => 10;
 use constant IMAGES_PER_MAIL_NEWS => 10;
@@ -21,6 +22,8 @@ use constant BODY_TEMPLATE_MAP => {
 	&WEEKLY   => 'mail_body.tmpl',
 	&WHATSNEW => 'mail_body_news.tmpl',
 };
+
+use constant GALLERY_URI           => 'http://akosarev.info/';
 
 use constant PICTURE_INFO_TEMPLATE => 'mail_picture_info.tmpl';
 use constant CONTAINER_TEMPLATE    => 'mail_container.tmpl';
@@ -82,13 +85,17 @@ sub load_picture_info{
 	my $album_name = $h{album_name};
 	my $link       = $h{link};
 
+	my $album_name_uri = $album_name;
+	$album_name_uri =~ s/\s/_/g;
+	$album_name_uri = &GALLERY_URI .  'albums/' . $album_name_uri;
+
 	my $picture_info = load_template(
 		template_name => &PICTURE_INFO_TEMPLATE,
 		parameters    => {
-			ALBUM_NAME => $album_name,
+			ALBUM_NAME => $album_name ? ($album_name . '<a href="' . uri_escape($album_name_uri) . '">&nbsp;Look &qt;&qt;</a>') : '',
 			COMMENT    => $comment,
 			NAME       => $file_name,
-			LINK       => $link ? ('<br><a href="http://homyaki.info/' . $link . '">Where is it?</a><br>') : ''
+			LINK       => $link ? (&GALLERY_URI . $link) : ''
 		}
 	);
 

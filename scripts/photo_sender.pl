@@ -87,12 +87,12 @@ sub load_picture_info{
 
 	my $album_name_uri = $album_name;
 	$album_name_uri =~ s/\s/_/g;
-	$album_name_uri = &GALLERY_URI .  'albums/' . $album_name_uri;
+	$album_name_uri = &GALLERY_URI .  'albums/' . uri_escape($album_name_uri);
 
 	my $picture_info = load_template(
 		template_name => &PICTURE_INFO_TEMPLATE,
 		parameters    => {
-			ALBUM_NAME => $album_name ? ($album_name . '<a href="' . uri_escape($album_name_uri) . '">&nbsp;Look &qt;&qt;</a>') : '',
+			ALBUM_NAME => $album_name ? ($album_name . '<a href="' . $album_name_uri . '">&nbsp;Look &gt;&gt;</a>') : '',
 			COMMENT    => $comment,
 			NAME       => $file_name,
 			LINK       => $link ? (&GALLERY_URI . $link) : ''

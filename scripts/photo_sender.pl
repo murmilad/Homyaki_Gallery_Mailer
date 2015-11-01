@@ -39,7 +39,7 @@ use constant WEB_PATH          => 'media.homyaki.info';
 use constant WEB_LOGIN         => 'alex';
 use constant WEB_PASSWORD      => '458973';
 
-use constant WEB_DATA_PATH     => '/';
+use constant WEB_DATA_PATH     => '/var/www/akosarev.info/htdocs/';
 use constant WEB_IMAGES_PATH   => '/images/big/';
 use constant DOWNLOAD_ATTEMPTS => 10;
 

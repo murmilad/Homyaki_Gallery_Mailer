@@ -33,11 +33,11 @@ use constant MAIN_PATH             => '/home/alex/Scripts/gf_mail/';
 
 #use constant WEB_PATH          => 'akosarev.info';
 #use constant WEB_LOGIN         => 'akosarev';
-#use constant WEB_PASSWORD      => 'Godaddy215473';
+#use constant WEB_PASSWORD      => '####';
 
 use constant WEB_PATH          => 'media.homyaki.info';
 use constant WEB_LOGIN         => 'alex';
-use constant WEB_PASSWORD      => '458973';
+use constant WEB_PASSWORD      => '####';
 
 use constant WEB_DATA_PATH     => '/var/www/akosarev.info/htdocs/';
 use constant WEB_IMAGES_PATH   => '/images/big/';
@@ -47,7 +47,7 @@ use constant SUBSCR_FILE  => 'resume.txt';
 use constant GALLERY_FILE => 'gallery.xml';
 
 use constant DBI_USER     => 'root';
-use constant DBI_PASSWORD => '458973';
+use constant DBI_PASSWORD => '####';
 
 
 my $download_attempts = 0;
